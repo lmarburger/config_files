@@ -27,6 +27,11 @@ end
 
 Autotest.add_hook :initialize do |at|
 	
+	# Run helper test when helper is changed.
+	at.add_mapping %r(^app/helpers/(.*)\.rb$) do |filename, match|
+		at.files_matching %r(^test/unit/helpers/#{match[1]}_test\.rb$)
+	end
+	
 	# Run all integration tests when test/integration_test_helper.rb changes.
 	at.add_mapping %r(^test/integration_test_helper\.rb$) do
 		at.files_matching %r(^test/integration/.*\.rb$)
