@@ -27,6 +27,9 @@ end
 
 Autotest.add_hook :initialize do |at|
 	
+	# Ignore git, svn, and DS_Store files.
+	at.add_exception(%r((^|/)\.(git(ignore)?|svn|DS_Store)(/|$)))
+	
 	# Run helper test when helper is changed.
 	at.add_mapping %r(^app/helpers/(.*)\.rb$) do |filename, match|
 		at.files_matching %r(^test/unit/helpers/#{match[1]}_test\.rb$)
