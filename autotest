@@ -1,5 +1,30 @@
 require 'autotest/redgreen'
 
+class Autotest::Rails
+	
+	# Redefine test_files_for to match against every mapping instead of finding
+	# and executing the first that matches +filename+.
+	# 
+	# Previously, if there were two regexes that match the same filename, only the
+	# first mapping would be executed and any subsequent would be ignored.
+	def test_files_for(filename)
+		matched_files = @test_mappings.inject([]) do |files, arr|
+			file_re, proc = arr.first, arr.last
+			if filename =~ file_re
+				p :test_file_for => [filename, file_re] if $DEBUG
+				
+				files = files.concat(proc.call(filename, $~).to_a)
+			end
+			
+			files
+		end
+		
+		output.puts "No tests matched #{filename}" if ($v or $TESTING) and matched_files.empty?
+		
+		matched_files.sort.uniq.select { |f| known_files[f] }
+	end
+end
+
 Autotest.add_hook :initialize do |at|
 	
 	# Run all integration tests when test/integration_test_helper.rb changes.
