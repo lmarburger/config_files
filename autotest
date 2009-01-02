@@ -1,0 +1,9 @@
+require 'autotest/redgreen'
+
+Autotest.add_hook :initialize do |at|
+	
+	# Run all integration tests when test/integration_test_helper.rb changes.
+	at.add_mapping %r(^test/integration_test_helper\.rb$) do
+		at.files_matching %r(^test/integration/.*\.rb$)
+	end
+end
