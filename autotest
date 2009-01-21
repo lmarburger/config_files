@@ -8,27 +8,29 @@ class Autotest::Rails
 	# Previously, if there were two regexes that match the same filename, only the
 	# first mapping would be executed and any subsequent would be ignored.
 	def test_files_for(filename)
-		matched_files = @test_mappings.inject([]) do |files, arr|
-			file_re, proc = arr.first, arr.last
+
+		# Find and call all procs matching the changed file.
+		matched_files = @test_mappings.inject([]) do |files, mapping|
+			file_re, proc = mapping.first, mapping.last
+
 			if filename =~ file_re
 				p :test_file_for => [filename, file_re] if $DEBUG
-				
-				files = files.concat(proc.call(filename, $~).to_a)
+				files << proc.call(filename, $~)
 			end
-			
+
 			files
 		end
-		
+
 		output.puts "No tests matched #{filename}" if ($v or $TESTING) and matched_files.empty?
-		
-		matched_files.sort.uniq.select { |f| known_files[f] }
+
+		matched_files.flatten.sort.uniq.select { |f| known_files[f] }
 	end
 end
 
 Autotest.add_hook :initialize do |at|
 	
 	# Ignore git, svn, and DS_Store files.
-	at.add_exception(%r((^|/)\.(git(ignore)?|svn|DS_Store)(/|$)))
+	at.add_exception(%r((^|/)\.(git(ignore)?|svn|DS_Store)$))
 	
 	# Run helper test when helper is changed.
 	at.add_mapping %r(^app/helpers/(.*)\.rb$) do |filename, match|
