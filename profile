@@ -1,4 +1,4 @@
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/bin:$PATH
 export DISPLAY=:0.0
 
 # git
