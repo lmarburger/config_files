@@ -29,3 +29,6 @@ alias ms='m && ss'
 
 # Launch GitX in commit mode.
 alias gx='gitx -c'
+
+# Hack && Ship - http://reinh.com/blog/2008/08/27/hack-and-and-ship.html
+alias hs="hack && rake && ship"
