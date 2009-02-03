@@ -32,3 +32,21 @@ alias gx='gitx -c'
 
 # Hack && Ship - http://reinh.com/blog/2008/08/27/hack-and-and-ship.html
 alias hs="hack && rake && ship"
+
+# Bedazzle Your Bash Prompt with Git Info
+#   http://www.railstips.org/2009/2/2/bedazzle-your-bash-prompt-with-git-info
+#   http://www.intridea.com/posts/git-status-in-your-prompt
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+RESET="\[\033[0;37;00m\]"
+
+# export PS1='\u:\[\033[31;40m\]\w\[\033[0;33m\]$(parse_git_branch)\[\e[0m\]$ '
+PS1="\u:$GREEN\w$YELLOW \$(parse_git_branch)$RESET\$ "
