@@ -17,8 +17,9 @@ alias gsd='git svn dcommit'
 # Run autotest
 alias aut='autotest'
 
-# Start local Rails server
+# Start local Rails server and console
 alias ss='./script/server'
+alias sc='./script/console'
 
 # Open TextMate for the current directory
 alias m='mate .'
