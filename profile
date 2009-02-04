@@ -50,3 +50,5 @@ RESET="\[\033[0;37;00m\]"
 
 # export PS1='\u:\[\033[31;40m\]\w\[\033[0;33m\]$(parse_git_branch)\[\e[0m\]$ '
 PS1="\u:\w$YELLOW \$(parse_git_branch)$RESET\$ "
+
+source ~/.git-completion
