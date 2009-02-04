@@ -5,16 +5,14 @@
 [merge]
 	tool = opendiff
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+	ui = always
 [color "branch"]
 	current = green
-	local = yellow
+	local = white
 	remote = cyan
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
+	meta = yellow
+	frag = magenta
 	old = red bold
 	new = green bold
 [color "status"]
