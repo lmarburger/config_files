@@ -5,7 +5,7 @@
 [merge]
 	tool = opendiff
 [color]
-	ui = always
+  ui = auto
 [color "branch"]
 	current = green
 	local = white
