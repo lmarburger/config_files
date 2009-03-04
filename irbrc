@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'activesupport'
 
 # Wirble provides history, auto-completion, and colorization
 require 'wirble'
