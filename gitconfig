@@ -19,6 +19,10 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[color "interactive"]
+  header = white bold
+  prompt = green bold
+  help = cyan
 [alias]
 	co = checkout
 	d = dcommit
