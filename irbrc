@@ -12,10 +12,16 @@ require 'pp'
 # Quick exit
 alias q exit
 
-# Easily print methods local to an object's class
 class Object
+	# Easily print methods local to an object's class
 	def local_methods
 		(methods - Object.methods).sort
+	end
+
+	# Echo self. Handy when used with Symbol#to_proc:
+	# 	(1..10).each(&:echo)
+	def echo
+		puts self
 	end
 end
 
