@@ -26,3 +26,5 @@
 [alias]
 	co = checkout
 	d = dcommit
+	b = branch
+	re = rebase
