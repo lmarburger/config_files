@@ -27,8 +27,11 @@ alias m='mate .'
 # Open TextMate for the current directory and start script/server
 alias ms='m && ss'
 
+# Launch GitX and show all branches.
+alias gx='gitx --all'
+
 # Launch GitX in commit mode.
-alias gx='gitx -c'
+alias gxc='gitx -c'
 
 # Hack && Ship - http://reinh.com/blog/2008/08/27/hack-and-and-ship.html
 alias hs="hack && rake && ship"
