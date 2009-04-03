@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'activesupport'
 
 # Wirble provides history, auto-completion, and colorization
 require 'wirble'
@@ -9,8 +8,6 @@ Wirble.colorize
 # Pretty print
 require 'pp'
 
-# Quick exit
-alias q exit
 
 class Object
 	# Echo self. Handy when used with Symbol#to_proc:
