@@ -1,3 +1,4 @@
+require 'autotest-mac'
 require 'autotest/redgreen'
 
 class Autotest::Rails
