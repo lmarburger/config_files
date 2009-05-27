@@ -1,5 +1,6 @@
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH:~/.bin
 export DISPLAY=:0.0
+export EDITOR=mate
 
 # git
 alias gst='git status'
