@@ -28,3 +28,5 @@
 	d = dcommit
 	b = branch
 	re = rebase
+	s = stash
+	sub = submodule
