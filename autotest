@@ -1,11 +1,12 @@
-require 'autotest-mac'
+require 'autotest/fsevent'
+require '/Library/Ruby/Gems/1.8/gems/autotest-growl-0.1.0/lib/autotest/growl.rb'
 require 'autotest/redgreen'
 
 class Autotest::Rails
-	
-	# Redefine test_files_for to match against every mapping instead of finding
+
+  # Redefine test_files_for to match against every mapping instead of finding
 	# and executing the first that matches +filename+.
-	# 
+	#
 	# Previously, if there were two regexes that match the same filename, only the
 	# first mapping would be executed and any subsequent would be ignored.
 	def test_files_for(filename)
@@ -28,18 +29,18 @@ class Autotest::Rails
 	end
 end
 
-Autotest.add_hook :initialize do |at|
-	
-	# Ignore git, svn, and DS_Store files.
-	at.add_exception(%r((^|/)\.(git(ignore)?|svn|DS_Store)$))
-	
+Autotest.add_hook :initialize do |autotest|
+  %w{.git .svn .DS_Store ._* vendor}.each do |exception|
+    autotest.add_exception(exception)
+  end
+
 	# Run helper test when helper is changed.
-	at.add_mapping %r(^app/helpers/(.*)\.rb$) do |filename, match|
-		at.files_matching %r(^test/unit/helpers/#{match[1]}_test\.rb$)
+	autotest.add_mapping %r(^app/helpers/(.*)\.rb$) do |filename, match|
+		autotest.files_matching %r(^test/unit/helpers/#{match[1]}_test\.rb$)
 	end
-	
+
 	# Run all integration tests when test/integration_test_helper.rb changes.
-	at.add_mapping %r(^test/integration_test_helper\.rb$) do
-		at.files_matching %r(^test/integration/.*\.rb$)
+	autotest.add_mapping %r(^test/integration_test_helper\.rb$) do
+		autotest.files_matching %r(^test/integration/.*\.rb$)
 	end
 end
