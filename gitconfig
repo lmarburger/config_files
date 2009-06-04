@@ -4,6 +4,8 @@
 	editor = mate -w
 [merge]
 	tool = opendiff
+[push]
+	default = matching
 [color]
   ui = auto
 [color "branch"]
