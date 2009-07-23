@@ -37,6 +37,9 @@ alias gxc='gitx -c'
 # Hack && Ship - http://reinh.com/blog/2008/08/27/hack-and-and-ship.html
 alias hs="hack && rake && ship"
 
+# Remove the generated _site directory and start the Jekyll server.
+alias jek="rm -rf _site && jekyll --server --auto --pygments"
+
 # Bedazzle Your Bash Prompt with Git Info
 #   http://www.railstips.org/2009/2/2/bedazzle-your-bash-prompt-with-git-info
 #   http://www.intridea.com/posts/git-status-in-your-prompt
