@@ -34,9 +34,6 @@ alias gx='gitx --all'
 # Launch GitX in commit mode.
 alias gxc='gitx -c'
 
-# Hack && Ship - http://reinh.com/blog/2008/08/27/hack-and-and-ship.html
-alias hs="hack && rake && ship"
-
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
 
