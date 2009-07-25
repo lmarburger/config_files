@@ -37,6 +37,12 @@ alias gxc='gitx -c'
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
 
+# Shortcut to run features.
+alias rf="rake features"
+
+# Shortcut to run pending migratinos and prepare the test database.
+alias mig="rake db:migrate && rake db:test:prepare"
+
 # Bedazzle Your Bash Prompt with Git Info
 #   http://www.railstips.org/2009/2/2/bedazzle-your-bash-prompt-with-git-info
 #   http://www.intridea.com/posts/git-status-in-your-prompt
