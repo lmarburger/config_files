@@ -40,6 +40,9 @@ alias jek="rm -rf _site && jekyll --server --auto --pygments"
 # Shortcut to run features.
 alias rf="rake features"
 
+# Shortcut for running script/generate.
+alias gen="script/generate"
+
 # Shortcut to run pending migratinos and prepare the test database.
 alias mig="rake db:migrate && rake db:test:prepare"
 
