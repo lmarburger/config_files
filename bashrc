@@ -2,18 +2,23 @@ export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH:~/.bin
 export DISPLAY=:0.0
 export EDITOR=mate
 
-# git
+# git shortcuts
 alias gst='git status'
-alias gd='git diff | mate'
-alias gc='git commit -v'
-alias gca='git commit -va'
 alias gb='git branch'
 alias gba='git branch -a'
+alias pull='git pull'
+alias push='git push'
 
-# git svn
+# git-svn shortcuts
 alias gs='git svn'
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
+
+# Launch GitX and show all branches.
+alias gx='gitx --all'
+
+# Launch GitX in commit mode.
+alias gxc='gitx -c'
 
 # Run autotest
 alias aut='autotest'
@@ -24,15 +29,6 @@ alias sc='./script/console'
 
 # Open TextMate for the current directory
 alias m='mate .'
-
-# Open TextMate for the current directory and start script/server
-alias ms='m && ss'
-
-# Launch GitX and show all branches.
-alias gx='gitx --all'
-
-# Launch GitX in commit mode.
-alias gxc='gitx -c'
 
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
