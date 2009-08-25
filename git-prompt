@@ -3,18 +3,27 @@
 # Bedazzle Your Bash Prompt with Git Info
 #   http://www.railstips.org/2009/2/2/bedazzle-your-bash-prompt-with-git-info
 #   http://www.intridea.com/posts/git-status-in-your-prompt
-function parse_git_branch {
+function current_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1/"
 }
 
 CYAN='\e[0;36m'
+GREEN='\e[0;32m'
 YELLOW='\e[0;33m'
 RESET='\e[0m'
 
 # Choose the prompt color based on the working directory's status.
-function parse_git_status_color {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo -e $YELLOW || echo -e $CYAN
+function git_status_color {
+  status=`git status 2> /dev/null`
+
+  if [[ $(echo "$status" | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+    echo -e $YELLOW
+  elif $(echo "$status" | grep -q "Your branch is ahead of"); then
+    echo -e $CYAN
+  else
+    echo -e $GREEN
+  fi
 }
 
 # Set the prompt to "~/Sites/monkeys master $ "
-PS1="\w\[\$(parse_git_status_color)\]\$(parse_git_branch)\[$RESET\] \$ "
+PS1="\w\[\$(git_status_color)\]\$(current_git_branch)\[$RESET\] \$ "
