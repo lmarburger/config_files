@@ -42,19 +42,20 @@ alias jek="rm -rf _site && jekyll --server --auto --pygments"
 #   http://www.railstips.org/2009/2/2/bedazzle-your-bash-prompt-with-git-info
 #   http://www.intridea.com/posts/git-status-in-your-prompt
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1/"
 }
 
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+CYAN='\e[0;36m'
+YELLOW='\e[0;33m'
+RESET='\e[0m'
+
+# Choose the prompt color based on the working directory's status.
+function parse_git_status_color {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo -e $YELLOW || echo -e $CYAN
 }
 
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-RESET="\[\033[0;37;00m\]"
-
-# export PS1='\u:\[\033[31;40m\]\w\[\033[0;33m\]$(parse_git_branch)\[\e[0m\]$ '
-PS1="\w$YELLOW \$(parse_git_branch)$RESET\$ "
+# Set the prompt to "~/Sites/monkeys master $ "
+PS1="\w\[\$(parse_git_status_color)\]\$(parse_git_branch)\[$RESET\] \$ "
 
 # Load git autocompletion script.
 source ~/.git-completion
