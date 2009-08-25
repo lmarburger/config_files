@@ -2,45 +2,41 @@ export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH:~/.bin
 export DISPLAY=:0.0
 export EDITOR=mate
 
-# git shortcuts
+# git aliases
 alias gst='git status'
 alias gb='git branch'
 alias gba='git branch -a'
 alias pull='git pull'
 alias push='git push'
 
-# git-svn shortcuts
+# git-svn aliases
 alias gs='git svn'
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
 
-# Launch GitX and show all branches.
-alias gx='gitx --all'
+# Open GitHub for the current git repo if applicable.
+alias github='br=$(git branch --contains HEAD | sed -En "s/^\* //p"); if ! git ls-remote . | grep -q -e "refs/remotes/.*/${br}"; then br="master"; fi; open $(git config -l | sed -En "s%remote.origin.url=git(@|://)(github.com)(:|/)(.+/.+).git%https://\2/\4/tree/${br}%p")'
 
-# Launch GitX in commit mode.
+# GitX aliases
+alias gx='gitx --all'
 alias gxc='gitx -c'
 
-# Run autotest
-alias aut='autotest'
+# Open the current direcotry in TextMate
+alias m='mate .'
 
-# Start local Rails server and console
+# Rails aliases
 alias ss='./script/server'
 alias sc='./script/console'
+alias gen="script/generate"
+alias mig="rake db:migrate && rake db:test:prepare"
 
-# Open TextMate for the current directory
-alias m='mate .'
+# Testing aliases
+alias aut='autotest'
+alias rf="rake features"
 
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
 
-# Shortcut to run features.
-alias rf="rake features"
-
-# Shortcut for running script/generate.
-alias gen="script/generate"
-
-# Shortcut to run pending migratinos and prepare the test database.
-alias mig="rake db:migrate && rake db:test:prepare"
 
 # Bedazzle Your Bash Prompt with Git Info
 #   http://www.railstips.org/2009/2/2/bedazzle-your-bash-prompt-with-git-info
@@ -62,9 +58,6 @@ PS1="\w$YELLOW \$(parse_git_branch)$RESET\$ "
 
 # Load git autocompletion script.
 source ~/.git-completion
-
-# Open GitHub for the current git repo if applicable.
-alias github='br=$(git branch --contains HEAD | sed -En "s/^\* //p"); if ! git ls-remote . | grep -q -e "refs/remotes/.*/${br}"; then br="master"; fi; open $(git config -l | sed -En "s%remote.origin.url=git(@|://)(github.com)(:|/)(.+/.+).git%https://\2/\4/tree/${br}%p")'
 
 # Screen config
 if [ "$TERM" = "screen" -a ! "$SHOWED_SCREEN_MESSAGE" = "true" ]; then
