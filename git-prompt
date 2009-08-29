@@ -7,10 +7,10 @@ function current_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ \1/"
 }
 
-CYAN='\e[0;36m'
-GREEN='\e[0;32m'
-YELLOW='\e[0;33m'
-RESET='\e[0m'
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+RESET='\033[0m'
 
 # Choose the prompt color based on the working directory's status.
 function git_status_color {
