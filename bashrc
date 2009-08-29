@@ -32,7 +32,7 @@ alias mig="rake db:migrate && rake db:test:prepare"
 
 # Testing aliases
 alias aut='autotest'
-alias rf="rake features"
+alias rc='rake cucumber'
 
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
