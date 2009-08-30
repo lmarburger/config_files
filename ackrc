@@ -1,1 +1,4 @@
---type-add=ruby=.haml,.sass,.rake
+--type-add=ruby=.haml,.rake
+--type-add=css=.sass
+--type-set=cucumber=.feature
+--ignore-dir=metric_fu
