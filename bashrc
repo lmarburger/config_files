@@ -22,7 +22,7 @@ alias gx='gitx --all'
 alias gxc='gitx -c'
 
 # Open the current direcotry in TextMate
-alias m='mate .'
+alias m='mvim .'
 
 # Rails aliases
 alias ss='./script/server'
