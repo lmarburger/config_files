@@ -64,3 +64,7 @@ RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
 PATH="$PATH:$RIPDIR/active/bin"
 export RIPDIR RUBYLIB PATH
 # -- end rip config -- #
+
+# Allow ctrl-s to reverse through bash history (ctrl-r)
+stty stop undef
+
