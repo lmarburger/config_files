@@ -1,6 +1,6 @@
 require 'autotest/fsevent'
-require '/Library/Ruby/Gems/1.8/gems/autotest-growl-0.1.0/lib/autotest/growl.rb'
-require 'autotest/redgreen'
+require 'autotest/growl'
+require 'redgreen/autotest'
 
 class Autotest::Rails
 
