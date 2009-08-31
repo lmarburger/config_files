@@ -112,8 +112,8 @@
     nmap <leader>V :vsplit<CR> <C-w><C-w>
     nmap <leader>s :split<CR> <C-w><C-w>
 
-    " Switch buffers and maximize
-    nmap <leader>w <C-w><C-w>_
+    " Switch to previous buffer
+    nmap <leader>w <C-w>p
 
     " Fix navigation to work when { is not in the first column
     map [[ ?{<CR>w99[{
