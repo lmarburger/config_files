@@ -33,11 +33,11 @@
     " flashes matching brackets and parenthesis
     set showmatch
 
-    " Tabs should be 4 spaces wide.
-    set shiftwidth=4
-    set tabstop=4
+    " Tabs should be 2 spaces wide.
+    set shiftwidth=2
+    set tabstop=2
 
-    " Convert a <Tab> to 4 <space>s
+    " Convert a <Tab> to <space>s
     set expandtab
 
     " Helps with backspacing expanded tabs
@@ -108,15 +108,27 @@
     imap jj <Esc>
 
     " Window splitting mappings
-    nmap <leader>v :vsplit<CR> <C-w><C-w>
+    nmap <leader>v :set columns=168<CR>:vsplit<CR> <C-w><C-w>
+    nmap <leader>V :vsplit<CR> <C-w><C-w>
     nmap <leader>s :split<CR> <C-w><C-w>
 
     " Switch buffers and maximize
     nmap <leader>w <C-w><C-w>_
 
     " Fix navigation to work when { is not in the first column
-    :map [[ ?{<CR>w99[{
-    :map ][ /}<CR>b99]}
-    :map ]] j0[[%/{<CR>
-    :map [] k$][%?}<CR>
+    map [[ ?{<CR>w99[{
+    map ][ /}<CR>b99]}
+    map ]] j0[[%/{<CR>
+    map [] k$][%?}<CR>
+
+    " Shortcut the insanely long :Rintegrationtest
+    cmap Rin Rintegrationtest<space>
+
+    " Switching buffers
+    nmap <tab> :bn<cr>
+    nmap <s-tab> :bp<cr>
+
+    " Quickly edit vimrc
+    map \v :sp ~/.vimrc<CR><C-W>_
+    map <silent> \V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
