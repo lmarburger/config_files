@@ -108,7 +108,7 @@
     imap jj <Esc>
 
     " Window splitting mappings
-    nmap <leader>v :set columns=168<CR>:vsplit<CR> <C-w><C-w>
+    nmap <leader>v :set columns=168<CR>:vsplit<CR><C-w><C-w>
     nmap <leader>V :vsplit<CR> <C-w><C-w>
     nmap <leader>s :split<CR> <C-w><C-w>
 
