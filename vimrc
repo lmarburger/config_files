@@ -4,8 +4,14 @@
     set nocompatible
     syntax on
 
+    " Let me hide modified buffers
+    set hidden
+
     " Theme
     colorscheme ir_black
+
+    " Font
+    set gfn=Monaco:h10
 
     scriptencoding utf-8
     set encoding=utf-8 " Not sure if there's a difference
@@ -14,7 +20,7 @@
     filetype plugin indent on
 
     " Size the window
-    set lines=50 columns=110
+    set lines=51 columns=169
 
     " show the best match so far as search strings are typed
     set incsearch
@@ -75,6 +81,11 @@
     " Make backspace work in insert mode
     set backspace=indent,eol,start
 
+" Section: bufexplorer
+  
+  " Hide default help
+  let g:bufExplorerDefaultHelp=0
+
 
 " Section: bindings
 
@@ -108,8 +119,7 @@
     imap jj <Esc>
 
     " Window splitting mappings
-    nmap <leader>v :set columns=168<CR>:vsplit<CR><C-w><C-w>
-    nmap <leader>V :vsplit<CR> <C-w><C-w>
+    nmap <leader>v :vsplit<CR><C-w><C-w>
     nmap <leader>s :split<CR> <C-w><C-w>
 
     " Switch to previous buffer
