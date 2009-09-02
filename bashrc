@@ -2,7 +2,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH:~/.bin
 export MANPATH=/opt/local/share/man:$MANPATH  # MacPorts man pages.
 
 export DISPLAY=:0.0
-export EDITOR=mate
+export EDITOR=mvim
 
 # git aliases
 alias gst='git status'
