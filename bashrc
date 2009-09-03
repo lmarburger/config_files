@@ -23,7 +23,7 @@ alias github='br=$(git branch --contains HEAD | sed -En "s/^\* //p"); if ! git l
 alias gx='gitx --all'
 alias gxc='gitx -c'
 
-# Open the current direcotry in TextMate
+# Open the current direcotry in MacVim
 alias m='mvim .'
 
 # Rails aliases
