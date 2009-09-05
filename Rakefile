@@ -5,7 +5,6 @@ task :update_repository do
 
   Dir.glob(File.join(current_directory, '*')) do |filename|
     config_file = File.join(home_directory, ".#{ File.basename(filename) }")
-    #p [ filename, File.exist?(config_file) ]
 
     if File.exist?(config_file)
       rm_rf filename
