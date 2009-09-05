@@ -4,6 +4,9 @@
     set nocompatible
     syntax on
 
+    " Wrap lines on word break
+    set linebreak
+
     " Let me hide modified buffers
     set hidden
 
@@ -85,6 +88,11 @@
   
   " Hide default help
   let g:bufExplorerDefaultHelp=0
+
+" Section: NERDTree
+  
+  " Hide default help
+  let NERDTreeQuitOnOpen=1
 
 
 " Section: bindings
