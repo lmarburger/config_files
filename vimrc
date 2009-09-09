@@ -25,6 +25,9 @@
     " Size the window
     set lines=51 columns=169
 
+    " Set wrap width
+    :set textwidth=80
+
     " show the best match so far as search strings are typed
     set incsearch
 
