@@ -87,6 +87,10 @@
     " Make backspace work in insert mode
     set backspace=indent,eol,start
 
+    " Hide MacVim's toolbar by default
+    set guioptions-=T
+
+
 " Section: bufexplorer
   
   " Hide default help
