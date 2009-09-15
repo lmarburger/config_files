@@ -36,6 +36,7 @@ alias mig="rake db:migrate && rake db:test:prepare"
 alias aut='autotest'
 alias rc='CUCUMBER_FORMAT=progress rake cucumber'
 alias rco='CUCUMBER_FORMAT=progress rake cucumber:ok'
+alias cuc='cucumber -r features'
 
 
 # Remove the generated _site directory and start the Jekyll server.
