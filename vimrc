@@ -108,7 +108,7 @@
     let mapleader = ","
 
     " Close the active buffer, but keep the split open.
-    map <leader>bc :Bclose<CR>
+    map <leader>x :Bclose<CR>
 
     " insert hashrocket
     imap <C-l> <Space>=><Space>
