@@ -91,6 +91,9 @@
     set guioptions-=T
 
 
+" Section: matchit
+  :source ~/.vim/plugin/matchit.vim
+
 " Section: bufexplorer
   
   " Hide default help
