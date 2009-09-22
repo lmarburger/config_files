@@ -81,8 +81,8 @@
     " enable setting title
     set title
 
-    " configure title to look like: Vim /path/to/file
-    set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
+    " configure title to look like: /path/to/file
+    set titlestring=%-25.55F\ %a%r%m titlelen=70
 
     " Make backspace work in insert mode
     set backspace=indent,eol,start
