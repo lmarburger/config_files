@@ -25,6 +25,7 @@ alias gxc='gitx -c'
 
 # Open the current direcotry in MacVim
 alias m='mvim .'
+alias e='mvim'
 
 # Rails aliases
 alias ss='./script/server'
