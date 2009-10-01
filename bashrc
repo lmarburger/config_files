@@ -74,3 +74,5 @@ export RIPDIR RUBYLIB PATH
 # Allow ctrl-s to reverse through bash history (ctrl-r)
 stty stop undef
 
+# rvm installer added line:
+if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
