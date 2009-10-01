@@ -152,9 +152,6 @@
     map ]] j0[[%/{<CR>
     map [] k$][%?}<CR>
 
-    " Shortcut the insanely long :Rintegrationtest
-    cmap Rin Rintegrationtest<space>
-
     " Switching buffers
     nmap <tab> :bn<cr>
     nmap <s-tab> :bp<cr>
