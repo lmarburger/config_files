@@ -32,3 +32,6 @@
   re = rebase
   s = stash
   sub = submodule
+[user]
+	name = Larry Marburger
+	email = larry@marburger.cc
