@@ -1,6 +1,6 @@
 require 'autotest/growl'
 require 'redgreen/autotest'
-# require 'autotest/fsevent'
+require 'autotest/fsevent'
 
 class Autotest::Rails
 
