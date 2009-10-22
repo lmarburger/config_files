@@ -112,6 +112,7 @@
 
     " Close the active buffer, but keep the split open.
     map <leader>x :Bclose<CR>
+    map <leader>X :bd<CR>
 
     " insert hashrocket
     imap <C-l> <Space>=><Space>
