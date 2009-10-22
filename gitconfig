@@ -1,7 +1,7 @@
 [apply]
   whitespace = nowarn
 [core]
-  editor = mate -w
+  editor = mvim -f
 [merge]
   tool = opendiff
 [push]
