@@ -161,3 +161,44 @@
     map \v :sp ~/.vimrc<CR><C-W>_
     map <silent> \V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+    " Line up stuff in visual mode
+    vmap =  :!$HOME/.vim/bin/line-up-equals<CR>
+    vmap ,  :!$HOME/.vim/bin/line-up-commas<CR>
+    vmap \| :!$HOME/.vim/bin/tableify<CR>
+
+
+" Section: commands
+
+  augroup HighlightPeskyTabs
+    au!
+    autocmd BufRead,BufNewFile *
+        \ syn match Tab "\t" |
+        \ syn match TrailingWS "\s\+$" |
+        \ if &background == "dark" |
+        \   hi def Tab ctermbg=red guibg=#660000 |
+        \   hi def TrailingWS ctermbg=red guibg=#660000 |
+        \ else |
+        \   hi def Tab ctermbg=red guibg=#ffdddd |
+        \   hi def TrailingWS ctermbg=red guibg=#ffdddd |
+        \ endif
+  augroup END
+
+  " Various useful Ruby command mode shortcuts
+  augroup Ruby
+    au!
+    autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
+      \ :nmap <leader>R V:<C-U>!$HOME/.vim/bin/ruby-run-focused-unit-test % <C-R>=line("'<")<CR>p \| tee /tmp/output.txt<CR>
+    autocmd BufRead,BufNewFile,BufEnter *.rb
+      \ :nmap <leader>r :<C-U>!ruby % \| tee /tmp/output.txt<CR>|
+      \ :vmap b :!beautify-ruby<CR>
+    autocmd BufRead,BufNewFile,BufEnter *_spec.rb
+      \ :nmap <leader>r :<C-U>!spec % \| tee /tmp/output.txt<CR>
+  augroup END
+
+  augroup Cucumber
+    au!
+    autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
+      \ set filetype=cucumber|
+      \ :nmap <leader>r :call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>R :call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
+  augroup END
