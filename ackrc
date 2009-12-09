@@ -2,3 +2,5 @@
 --type-add=css=.sass
 --type-set=cucumber=.feature
 --ignore-dir=metric_fu
+--ignore-dir=tmp
+--ignore-dir=log
