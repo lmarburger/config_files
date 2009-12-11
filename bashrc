@@ -46,6 +46,8 @@ alias cuc='cucumber -r features'
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
 
+# Create a new screen session with the name "s0"
+alias s="screen -S s0"
 
 # Load the git prompt script.
 source ~/.git-prompt
