@@ -202,3 +202,6 @@
       \ :nmap <leader>r :call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
       \ :nmap <leader>R :call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
   augroup END
+
+  " Execute the last command executed in screen.
+  :nmap <leader>l :call Send_to_Screen("!!\n")<CR>
