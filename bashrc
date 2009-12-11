@@ -4,6 +4,9 @@ export MANPATH=/opt/local/share/man:$MANPATH  # MacPorts man pages.
 export DISPLAY=:0.0
 export EDITOR=mvim
 
+# Use hub: http://github.com/defunkt/hub
+alias git=hub
+
 # git aliases
 alias gst='git status'
 alias gb='git branch'
