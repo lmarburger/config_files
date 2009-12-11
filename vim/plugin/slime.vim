@@ -15,11 +15,11 @@ endfunction
 
 function Screen_Vars()
   if !exists("g:screen_sessionname") || !exists("g:screen_windowname")
-    let g:screen_sessionname = ""
-    let g:screen_windowname = "0"
+    let g:screen_sessionname = "s0"
+    let g:screen_windowname = "w0"
   end
 
-  let g:screen_sessionname = input("session name: ", "", "custom,Screen_Session_Names")
+  let g:screen_sessionname = input("session name: ", g:screen_sessionname, "custom,Screen_Session_Names")
   let g:screen_windowname = input("window name: ", g:screen_windowname)
 endfunction
 
