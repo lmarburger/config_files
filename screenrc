@@ -1,3 +1,6 @@
 autodetach off
 startup_message off
 termcapinfo xterm* ti@:te@
+
+# Set the default window title
+shelltitle 'w0'
