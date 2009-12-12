@@ -1,4 +1,4 @@
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH:~/.bin
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:~/.bin
 export MANPATH=/opt/local/share/man:$MANPATH  # MacPorts man pages.
 
 export DISPLAY=:0.0
