@@ -204,4 +204,4 @@
   augroup END
 
   " Execute the last command executed in screen.
-  :nmap <leader>l :call Send_to_Screen("!!\n")<CR>
+  :nmap <leader>l :call Send_to_Screen("!cucumber\n")<CR>
