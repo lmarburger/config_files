@@ -171,7 +171,7 @@
 " Section: commands
 
   augroup HighlightPeskyTabs
-    au!
+    autocmd!
     autocmd BufRead,BufNewFile *
         \ syn match Tab "\t" |
         \ syn match TrailingWS "\s\+$" |
@@ -186,7 +186,7 @@
 
   " Various useful Ruby command mode shortcuts
   augroup Ruby
-    au!
+    autocmd!
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
       \ :nmap <leader>R V:<C-U>!$HOME/.vim/bin/ruby-run-focused-unit-test % <C-R>=line("'<")<CR>p \| tee /tmp/output.txt<CR>
     autocmd BufRead,BufNewFile,BufEnter *.rb
@@ -197,7 +197,7 @@
   augroup END
 
   augroup Cucumber
-    au!
+    autocmd!
     autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
       \ set filetype=cucumber|
       \ :nmap <leader>r :call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
@@ -206,3 +206,11 @@
 
   " Execute the last command executed in screen.
   :nmap <leader>l :call Send_to_Screen("!cucumber\n")<CR>
+
+  augroup Markdown
+    autocmd!
+
+    " Tabs should be 4 spaces wide in Markdown
+    autocmd BufRead,BufNewFile,BufEnter *.md set ai formatoptions=tcroqn2 comments=n:&gt tabstop=4 shiftwidth=4
+    autocmd BufLeave *.md set tabstop=2 shiftwidth=2
+  augroup END
