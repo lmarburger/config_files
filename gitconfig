@@ -2,6 +2,7 @@
   whitespace = nowarn
 [core]
   editor = mvim -f
+  excludesfile = /Users/Larry/.gitignore
 [merge]
   tool = opendiff
 [push]
