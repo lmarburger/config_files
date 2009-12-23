@@ -36,6 +36,7 @@
 
     " Ignore case when searching.
     set ignorecase
+    set smartcase
 
     set visualbell
 
