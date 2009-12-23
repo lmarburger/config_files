@@ -160,7 +160,6 @@
 
     " Quickly edit vimrc
     map \v :sp ~/.vimrc<CR><C-W>_
-    map <silent> \V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
     " Line up stuff in visual mode
     vmap =  :!$HOME/.vim/bin/line-up-equals<CR>
@@ -213,4 +212,11 @@
     " Tabs should be 4 spaces wide in Markdown
     autocmd BufRead,BufNewFile,BufEnter *.md set ai formatoptions=tcroqn2 comments=n:&gt tabstop=4 shiftwidth=4
     autocmd BufLeave *.md set tabstop=2 shiftwidth=2
+  augroup END
+
+  augroup Vim
+    autocmd!
+
+    " Reload vimrc after save.
+    autocmd BufWritePost ~/.vimrc so ~/.vimrc
   augroup END
