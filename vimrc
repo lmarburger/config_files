@@ -37,7 +37,7 @@
     set cmdheight=2
 
     " Set wrap width
-    :set textwidth=80
+    set textwidth=80
 
     " show the best match so far as search strings are typed
     set incsearch
