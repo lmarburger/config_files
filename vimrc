@@ -18,7 +18,8 @@
     set hidden
 
     " Theme
-    colorscheme ir_black
+    "colorscheme ir_black
+    colorscheme vividchalk
 
     " Font
     set gfn=Monaco:h10
