@@ -33,6 +33,9 @@
     " Size the window
     set lines=51 columns=169
 
+    " Set the command window to be 2 lines tall.
+    set cmdheight=2
+
     " Set wrap width
     :set textwidth=80
 
