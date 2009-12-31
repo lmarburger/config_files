@@ -180,20 +180,6 @@
 
 " Section: commands
 
-  augroup HighlightPeskyTabs
-    autocmd!
-    autocmd BufRead,BufNewFile *
-        \ syn match Tab "\t" |
-        \ syn match TrailingWS "\s\+$" |
-        \ if &background == "dark" |
-        \   hi def Tab ctermbg=red guibg=#660000 |
-        \   hi def TrailingWS ctermbg=red guibg=#660000 |
-        \ else |
-        \   hi def Tab ctermbg=red guibg=#ffdddd |
-        \   hi def TrailingWS ctermbg=red guibg=#ffdddd |
-        \ endif
-  augroup END
-
   " Various useful Ruby command mode shortcuts
   augroup Ruby
     autocmd!
