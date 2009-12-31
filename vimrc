@@ -218,14 +218,6 @@
   :nmap <leader>l :call Send_to_Screen("!cucumber\n")<CR>
   :nmap <leader>L :call Send_to_Screen("!!\n")<CR>
 
-  augroup Markdown
-    autocmd!
-
-    " Tabs should be 4 spaces wide in Markdown
-    autocmd BufRead,BufNewFile,BufEnter *.md set ai formatoptions=tcroqn2 comments=n:&gt tabstop=4 shiftwidth=4
-    autocmd BufLeave *.md set tabstop=2 shiftwidth=2
-  augroup END
-
   augroup Vim
     autocmd!
 
