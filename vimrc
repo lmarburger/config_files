@@ -86,7 +86,7 @@
     set statusline+=[
     set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
     set statusline+=%{&fileformat}] " file format
-    set statusline+=%h%1*%m%r%w%0* " flag
+    set statusline+=%h%m%r%w " flag
     set statusline+=%= " right align
     set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
