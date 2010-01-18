@@ -194,8 +194,8 @@
     autocmd!
     autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
       \ set filetype=cucumber|
-      \ :nmap <leader>r :call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
-      \ :nmap <leader>R :call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
+      \ :nmap <leader>r :call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
+      \ :nmap <leader>R :call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
   augroup END
 
   " Execute the last command executed in screen.
@@ -208,3 +208,8 @@
     " Reload vimrc after save.
     autocmd BufWritePost ~/.vimrc so ~/.vimrc
   augroup END
+
+  "augroup Slurper
+    "autocmd!
+    "autocmd BufWritePost *.slurper call Send_to_Screen("slurp " .  expand("%") . "\n")
+  "augroup END
