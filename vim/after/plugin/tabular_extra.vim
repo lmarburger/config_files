@@ -11,6 +11,7 @@
   " Line up the first colons
   AddTabularPattern! first_colon /^[^:]*\zs:/l1r0
   AddTabularPattern! hash_rocket /=>/
+  AddTabularPattern! equals /=/
 
   " Restore the saved value of 'cpo'
   let &cpo = s:save_cpo
