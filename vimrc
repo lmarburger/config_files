@@ -173,10 +173,9 @@
     map \v :sp ~/.vimrc<CR><C-W>_
 
     " Line up stuff in visual mode
-    vmap =  :!$HOME/.vim/bin/line-up-equals<CR>
-    vmap ,  :!$HOME/.vim/bin/line-up-commas<CR>
-    vmap \| :!$HOME/.vim/bin/tableify<CR>
-
+    vmap <leader>: :Tabularize first_colon<CR>
+    vmap <leader>l :Tabularize hash_rocket<CR>
+    vmap <leader>= :Tabularize equals<CR>
 
 " Section: commands
 
