@@ -40,6 +40,8 @@ alias mig="rake db:migrate && rake db:test:prepare"
 alias aut='autotest'
 alias cuc='rake cucumber'
 
+# Shortcut to start mongod
+alias mongo='mongod run --config /usr/local/Cellar/mongodb/1.2.0-x86_64/mongod.conf'
 
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
