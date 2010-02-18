@@ -166,8 +166,8 @@
     map [] k$][%?}<CR>
 
     " Switching buffers
-    nmap <tab> :bn<cr>
-    nmap <s-tab> :bp<cr>
+    nmap <tab> :tabnext<cr>
+    nmap <s-tab> :tabprevious<cr>
 
     " Quickly edit vimrc
     map \v :sp ~/.vimrc<CR><C-W>_
