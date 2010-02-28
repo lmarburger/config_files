@@ -35,7 +35,7 @@ alias em='open -a /Applications/Emacs.app'
 alias ss='./script/server'
 alias sc='./script/console'
 alias gen="script/generate"
-alias mig="rake db:migrate && rake db:test:prepare"
+alias mig="rake db:migrate && rake db:migrate:redo && rake db:test:prepare"
 
 # Testing aliases
 alias aut='autotest'
