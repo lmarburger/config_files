@@ -6,6 +6,9 @@ export EDITOR=mvim
 # Use hub: http://github.com/defunkt/hub
 alias git=hub
 
+# Use gem-man
+alias man='gem man -s'
+
 # git aliases
 alias gst='git status'
 alias gb='git branch'
