@@ -58,20 +58,6 @@ source ~/.git-prompt
 # Load git autocompletion script.
 source ~/.git-completion
 
-# Screen config
-if [ "$TERM" = "screen" -a ! "$SHOWED_SCREEN_MESSAGE" = "true" ]; then
-  detached_screens=`screen -list | grep Detached`
-  if [ ! -z "$detached_screens" ]; then
-    echo "+---------------------------------------+"
-    echo "| Detached screens are available:       |"
-    echo "$detached_screens"
-    echo "+---------------------------------------+"
-  else
-    echo "[ screen is activated ]"
-  fi
-  export SHOWED_SCREEN_MESSAGE="true"
-fi
-
 # -- start rip config -- #
 RIPDIR=/Users/Larry/.rip
 RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
