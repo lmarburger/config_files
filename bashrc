@@ -34,10 +34,13 @@ alias e='mvim'
 alias em='open -a /Applications/Emacs.app'
 
 # Rails aliases
+alias r='rails'
+alias mig="rake db:migrate && rake db:migrate:redo && rake db:test:prepare"
+
+# Rails 2.x aliases
 alias ss='./script/server'
 alias sc='./script/console'
 alias gen="script/generate"
-alias mig="rake db:migrate && rake db:migrate:redo && rake db:test:prepare"
 
 # Testing aliases
 alias aut='autotest'
