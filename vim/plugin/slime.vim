@@ -15,7 +15,7 @@ endfunction
 
 function Screen_Vars()
   if !exists("g:screen_sessionname") || !exists("g:screen_windowname")
-    let g:screen_sessionname = "s0"
+    let g:screen_sessionname = "slime"
     let g:screen_windowname = "w0"
   end
 
