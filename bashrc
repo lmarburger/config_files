@@ -21,9 +21,6 @@ alias gs='git svn'
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
 
-# Open GitHub for the current git repo if applicable.
-alias github='br=$(git branch --contains HEAD | sed -En "s/^\* //p"); if ! git ls-remote . | grep -q -e "refs/remotes/.*/${br}"; then br="master"; fi; open $(git config -l | sed -En "s%remote.origin.url=git(@|://)(github.com)(:|/)(.+/.+).git%https://\2/\4/tree/${br}%p")'
-
 # GitX aliases
 alias gx='gitx --all'
 alias gxc='gitx -c'
