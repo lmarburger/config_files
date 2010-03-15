@@ -49,8 +49,8 @@ alias mongo='mongod run --config /usr/local/Cellar/mongodb/1.2.3-x86_64/mongod.c
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
 
-# Create a new screen session with the name "s0"
-alias s="screen -S s0"
+# Create a new screen session with the name "slime"
+alias s="screen -S slime"
 
 # Load the git prompt script.
 source ~/.git-prompt
