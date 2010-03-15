@@ -43,6 +43,9 @@ alias gen="script/generate"
 alias aut='autotest'
 alias cuc='rake cucumber'
 
+# Check which Ruby version I'm using
+alias rv='ruby --version'
+
 # Shortcut to start mongod
 alias mongo='mongod run --config /usr/local/Cellar/mongodb/1.2.3-x86_64/mongod.conf'
 
@@ -69,4 +72,4 @@ export RIPDIR RUBYLIB PATH
 stty stop undef
 
 # rvm installer added line:
-if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
+if [[ -s /Users/Larry/.rvm/scripts/rvm ]] ; then source /Users/Larry/.rvm/scripts/rvm ; fi
