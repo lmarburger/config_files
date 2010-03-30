@@ -199,7 +199,7 @@
   augroup END
 
   " Execute the last command executed in screen.
-  :nmap <leader>l :call Send_to_Screen("!cucumber\n")<CR>
+  :nmap <leader>l :call Send_to_Screen("exec_last_feature_or_test\n")<CR>
   :nmap <leader>L :call Send_to_Screen("!!\n")<CR>
 
   augroup Vim
