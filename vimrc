@@ -183,11 +183,7 @@
   augroup Ruby
     autocmd!
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
-      \ :nmap <leader>R V:<C-U>!$HOME/.vim/bin/ruby-run-focused-unit-test % <C-R>=line("'<")<CR>p \| tee /tmp/output.txt<CR>
-    autocmd BufRead,BufNewFile,BufEnter *.rb
-      \ :nmap <leader>r :<C-U>!ruby % \| tee /tmp/output.txt<CR>
-    autocmd BufRead,BufNewFile,BufEnter *_spec.rb
-      \ :nmap <leader>r :<C-U>!spec % \| tee /tmp/output.txt<CR>
+      \ :nmap <leader>r :call Send_to_Screen("ruby -Itest " . expand("%") . "\n")<CR>|
   augroup END
 
   augroup Cucumber
