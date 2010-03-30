@@ -31,7 +31,7 @@
     filetype plugin indent on
 
     " Size the window
-    set lines=51 columns=171
+    set lines=52 columns=171
 
     " Set the command window to be 2 lines tall.
     set cmdheight=2
