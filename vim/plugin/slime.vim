@@ -3,7 +3,8 @@
 
 function Send_to_Screen(text)
   if !exists("g:screen_sessionname") || !exists("g:screen_windowname")
-    call Screen_Vars()
+    let g:screen_sessionname = "slime"
+    let g:screen_windowname = "w0"
   end
 
   echo system("screen -S " . g:screen_sessionname . " -p " . g:screen_windowname . " -X stuff '" . substitute(a:text, "'", "'\\\\''", 'g') . "'")
