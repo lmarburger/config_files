@@ -184,6 +184,8 @@
     autocmd!
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
       \ :nmap <leader>r :call Send_to_Screen("ruby -Itest " . expand("%") . "\n")<CR>|
+    autocmd BufRead,BufNewFile,BufEnter *_spec.rb
+      \ :nmap <leader>r :call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
   augroup END
 
   augroup Cucumber

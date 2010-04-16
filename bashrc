@@ -62,7 +62,7 @@ source ~/.git-prompt
 source ~/.git-completion
 
 exec_last_feature_or_test() {
-  history|sort -r|sed 's/^  [0-9]*  //'|while read i;do if [[ "$i" =~ ^ruby || "$i" =~ ^cucumber ]];then echo $i|sh;exit;fi;done
+  history|sort -r|sed 's/^  [0-9]*  //'|while read i;do if [[ "$i" =~ ^ruby || "$i" =~ ^rspec || "$i" =~ ^cucumber ]];then echo $i|sh;exit;fi;done
 }
 
 # -- start rip config -- #
