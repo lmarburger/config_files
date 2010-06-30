@@ -27,12 +27,15 @@
   prompt = green bold
   help = cyan
 [alias]
+  a = add
   co = checkout
+  cp = cherry-pick
   d = dcommit
   b = branch
   re = rebase
   s = stash
   sub = submodule
+  l = log --oneline --graph
 [user]
   name = Larry Marburger
   email = larry@marburger.cc

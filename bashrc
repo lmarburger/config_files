@@ -2,14 +2,16 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH:~/.bin
 
 export DISPLAY=:0.0
 export EDITOR=mvim
+export GEM_EDITOR=mvim
+
+# Shortcut to SSH into Fran's box.
+alias irc='ssh lmarb@lukesh.com'
 
 # Use hub: http://github.com/defunkt/hub
 alias git=hub
 
-# Use gem-man
-alias man='gem man -s'
-
 # git aliases
+alias g='git'
 alias gst='git status'
 alias gb='git branch'
 alias gba='git branch -a'
@@ -42,18 +44,27 @@ alias gen="script/generate"
 # Testing aliases
 alias aut='autotest'
 alias cuc='rake cucumber'
+alias tc='rake test && rake cucumber'
 
 # Check which Ruby version I'm using
 alias rv='ruby --version'
 
+# Some services
+alias mem="memcached -d"
+alias post="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias post_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
 # Shortcut to start mongod
-alias mongo='mongod run --config /usr/local/Cellar/mongodb/1.2.3-x86_64/mongod.conf'
+#alias mongo='mongod run --config /usr/local/Cellar/mongodb/1.2.3-x86_64/mongod.conf'
 
 # Remove the generated _site directory and start the Jekyll server.
 alias jek="rm -rf _site && jekyll --server --auto --pygments"
 
 # Create a new screen session with the name "slime"
 alias s="screen -S slime"
+
+# Restart Apache
+alias are="sudo apachectl restart"
 
 # Load the git prompt script.
 source ~/.git-prompt
@@ -64,13 +75,6 @@ source ~/.git-completion
 exec_last_feature_or_test() {
   history|sort -r|sed 's/^  [0-9]*  //'|while read i;do if [[ "$i" =~ ^ruby || "$i" =~ ^rspec || "$i" =~ ^cucumber ]];then echo $i|sh;exit;fi;done
 }
-
-# -- start rip config -- #
-RIPDIR=/Users/Larry/.rip
-RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-PATH="$PATH:$RIPDIR/active/bin"
-export RIPDIR RUBYLIB PATH
-# -- end rip config -- #
 
 # Allow ctrl-s to reverse through bash history (ctrl-r)
 stty stop undef

@@ -1,9 +1,13 @@
 require 'rubygems'
 
 # Wirble provides history, auto-completion, and colorization
-require 'wirble'
-Wirble.init
-Wirble.colorize
+begin
+  require 'wirble'
+  Wirble.init
+  Wirble.colorize
+rescue LoadError
+  puts 'Wirble gem not loaded.'
+end
 
 IRB.conf[:AUTO_INDENT] = true
 
@@ -11,7 +15,11 @@ IRB.conf[:AUTO_INDENT] = true
 require 'pp'
 
 # Enumerable#every: Symbol#to_proc's hot cousin.
-require 'every'
+begin
+  require 'every'
+rescue LoadError
+  puts 'Every gem not loaded.'
+end
 
 class Object
 	# Echo self. Handy when used with Symbol#to_proc or Enumerable#every:

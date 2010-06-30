@@ -7,6 +7,9 @@
 
 " Section: configuration
 
+    " Pick up local vimrc files
+    set exrc
+
     " Syntax highlighting
     set nocompatible
     syntax on
@@ -174,18 +177,36 @@
 
     " Line up stuff in visual mode
     vmap <leader>: :Tabularize first_colon<CR>
+    "vmap <leader>L :Tabularize colon<CR>
     vmap <leader>l :Tabularize hash_rocket<CR>
     vmap <leader>= :Tabularize equals<CR>
+    vmap <leader>' :Tabularize first_single_quote<CR>
+    vmap <leader>" :Tabularize first_double_quote<CR>
+    vmap <leader>{ :Tabularize first_left_stash<CR>
+    vmap <leader>} :Tabularize first_right_stash<CR>
+
+    " Git
+    nmap <leader>gs :Gstatus<CR>
+    nmap <leader>gc :Gcommit<CR>
+    nmap <leader>gd :Gdiff<CR>
+
+" Section: closetag.vim
+
+  let g:closetag_html_style=1
 
 " Section: commands
 
   " Various useful Ruby command mode shortcuts
   augroup Ruby
     autocmd!
+    autocmd BufRead,BufNewFile,BufEnter *.rb
+      \ :nmap <leader>r :call Send_to_Screen("ruby " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
-      \ :nmap <leader>r :call Send_to_Screen("ruby -Itest " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :call Send_to_Screen("ruby -Itest -Ilib " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
       \ :nmap <leader>r :call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
+
+    autocmd Filetype eruby source ~/.vim/scripts/closetag.vim
   augroup END
 
   augroup Cucumber
