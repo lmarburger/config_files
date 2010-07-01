@@ -223,9 +223,7 @@
 
     " Reload vimrc after save.
     autocmd BufWritePost ~/.vimrc so ~/.vimrc
-  augroup END
 
-  "augroup Slurper
-    "autocmd!
-    "autocmd BufWritePost *.slurper call Send_to_Screen("slurp " .  expand("%") . "\n")
-  "augroup END
+    " Create the directory if it doesn't exist.
+    autocmd BufNewFile * silent !mkdir -p $(dirname %)
+  augroup END
