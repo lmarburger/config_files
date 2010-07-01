@@ -139,12 +139,6 @@
 
     " toggle file browser
     map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-    
-    " search next/previous and center on page
-    nmap n nzz
-    nmap N Nzz
-    nmap * *Nzz
-    nmap # #nzz
 
     " Search with ack
     map <leader>F :Ack<space>
