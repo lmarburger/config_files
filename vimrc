@@ -140,6 +140,9 @@
     " toggle file browser
     map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
+    " no highlight
+    nmap <leader>nn :noh<CR>
+
     " Search with ack
     map <leader>F :Ack<space>
 
