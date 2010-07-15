@@ -66,6 +66,9 @@ alias s="screen -S slime"
 # Restart Apache
 alias are="sudo apachectl restart"
 
+# QuickLook an image
+alias ql='qlmanage -p 2>/dev/null'
+
 # Load the git prompt script.
 source ~/.git-prompt
 
