@@ -75,6 +75,9 @@ source ~/.git-prompt
 # Load git autocompletion script.
 source ~/.git-completion
 
+# Homebrew completion
+source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+
 exec_last_feature_or_test() {
   history|sort -r|sed 's/^  [0-9]*  //'|while read i;do if [[ "$i" =~ ^ruby || "$i" =~ ^rspec || "$i" =~ ^cucumber ]];then echo $i|sh;exit;fi;done
 }
