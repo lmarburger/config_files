@@ -187,6 +187,8 @@
     nmap <leader>gc :Gcommit<CR>
     nmap <leader>gd :Gdiff<CR>
 
+    nmap <leader>t :tabe<CR>:Bclose<CR>
+
 " Section: closetag.vim
 
   let g:closetag_html_style=1
@@ -199,7 +201,7 @@
     autocmd BufRead,BufNewFile,BufEnter *.rb
       \ :nmap <leader>r :call Send_to_Screen("ruby " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
-      \ :nmap <leader>r :call Send_to_Screen("ruby -Itest -Ilib " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
       \ :nmap <leader>r :call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
 
@@ -215,7 +217,7 @@
   augroup END
 
   " Execute the last command executed in screen.
-  :nmap <leader>l :call Send_to_Screen("exec_last_feature_or_test\n")<CR>
+  :nmap <leader>l :w<CR>:call Send_to_Screen("exec_last_feature_or_test\n")<CR>
   :nmap <leader>L :call Send_to_Screen("!!\n")<CR>
 
   augroup Vim
