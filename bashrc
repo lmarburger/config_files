@@ -82,6 +82,23 @@ exec_last_feature_or_test() {
   history|sort -r|sed 's/^  [0-9]*  //'|while read i;do if [[ "$i" =~ ^ruby || "$i" =~ ^rspec || "$i" =~ ^cucumber ]];then echo $i|sh;exit;fi;done
 }
 
+dusort() {
+  du -kd 1 | sort -nr | awk '
+    BEGIN {
+      split("KB,MB,GB,TB", Units, ",");
+    }
+    {
+      u = 1;
+      while ($1 >= 1024) {
+        $1 = $1 / 1024;
+        u += 1
+      }
+      $1 = sprintf("%.1f %s", $1, Units[u]);
+      print $0;
+    }
+    '
+}
+
 # Allow ctrl-s to reverse through bash history (ctrl-r)
 stty stop undef
 
