@@ -149,8 +149,11 @@
     " Yank from the cursor to the end of the line.
     nnoremap Y y$
 
-    " Bind escape to jj
-    imap jj <Esc>
+    " Mash pinkies to escape.
+    imap a; <Esc>
+    imap ;a <Esc>
+    vmap a; <Esc>
+    vmap ;a <Esc>
 
     " Window splitting mappings
     nmap <leader>v :vsplit<CR><C-w><C-w>
