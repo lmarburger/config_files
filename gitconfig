@@ -28,6 +28,7 @@
   help = cyan
 [alias]
   a = add
+  c = commit
   co = checkout
   cp = cherry-pick
   d = dcommit

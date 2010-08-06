@@ -12,10 +12,10 @@ alias git=hub
 
 # git aliases
 alias g='git'
-alias gst='git status'
+alias gst='git status -s'
 alias gb='git branch'
 alias gba='git branch -a'
-alias pull='git pull'
+alias pull='git pull --rebase'
 alias push='git push'
 
 # git-svn aliases
