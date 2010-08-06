@@ -184,6 +184,7 @@
     vmap <leader>" :Tabularize first_double_quote<CR>
     vmap <leader>{ :Tabularize first_left_stash<CR>
     vmap <leader>} :Tabularize first_right_stash<CR>
+    vmap <leader>\| :Tabularize bar<CR>
 
     " Git
     nmap <leader>gs :Gstatus<CR>

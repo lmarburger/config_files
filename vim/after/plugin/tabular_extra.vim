@@ -13,6 +13,7 @@
   AddTabularPattern! first_colon /^[^:]*\zs:/l1r0
   AddTabularPattern! hash_rocket /=>/
   AddTabularPattern! equals /=/
+  AddTabularPattern! bar /|/l1r1
   AddTabularPattern! first_single_quote /^[^']*\zs'/l1c0
   AddTabularPattern! first_double_quote /^[^"]*\zs"/l1c0
   AddTabularPattern! first_left_stash /^[^{]*\zs{/l0r1
