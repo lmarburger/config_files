@@ -200,11 +200,11 @@
   augroup Ruby
     autocmd!
     autocmd BufRead,BufNewFile,BufEnter *.rb
-      \ :nmap <leader>r :call Send_to_Screen("ruby " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
-      \ :nmap <leader>r :call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
-      \ :nmap <leader>r :call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
 
     autocmd Filetype eruby source ~/.vim/scripts/closetag.vim
   augroup END
@@ -213,8 +213,8 @@
     autocmd!
     autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
       \ set filetype=cucumber|
-      \ :nmap <leader>r :call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
-      \ :nmap <leader>R :call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
+      \ :nmap <leader>R :w<CR>:call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
   augroup END
 
   " Execute the last command executed in screen.
