@@ -150,10 +150,7 @@
     nnoremap Y y$
 
     " Mash pinkies to escape.
-    imap a; <Esc>
-    imap ;a <Esc>
-    vmap a; <Esc>
-    vmap ;a <Esc>
+    imap jj <Esc>
 
     " Window splitting mappings
     nmap <leader>v :vsplit<CR><C-w><C-w>
