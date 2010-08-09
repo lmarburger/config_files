@@ -6,7 +6,7 @@
 [merge]
   tool = opendiff
 [push]
-  default = matching
+  default = current
 [color]
   ui = auto
 [color "branch"]
@@ -29,6 +29,7 @@
 [alias]
   a = add
   c = commit
+  cl = clone
   co = checkout
   cp = cherry-pick
   d = dcommit
