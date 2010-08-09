@@ -64,6 +64,9 @@ alias em='open -a /Applications/Emacs.app'
 # Rails aliases
 alias r='rails'
 alias mig="rake db:migrate && rake db:migrate:redo && rake db:test:prepare"
+alias b='bundle'
+alias br='bundle install --relock'
+alias h='heroku'
 
 # Rails 2.x aliases
 alias ss='./script/server'
