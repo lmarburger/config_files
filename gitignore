@@ -3,3 +3,4 @@
 *.swo
 .rvmrc
 .bundle
+*.sqlite3-journal

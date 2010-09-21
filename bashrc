@@ -45,6 +45,7 @@ alias gst='git status -s'
 alias gb='git branch'
 alias gba='git branch -a'
 alias pull='git pull --rebase'
+alias pulls='git stash && git pull --rebase && git stash pop'
 alias push='git push'
 
 # git-svn aliases
@@ -90,7 +91,8 @@ alias post_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 #alias mongo='mongod run --config /usr/local/Cellar/mongodb/1.2.3-x86_64/mongod.conf'
 
 # Remove the generated _site directory and start the Jekyll server.
-alias jek="rm -rf _site && jekyll --server --auto --pygments"
+alias jek="rm -rf _site && bundle exec jekyll --server --auto --pygments"
+alias ejek="rm -rf _site && bundle exec ejekyll --server --auto --pygments"
 
 # Create a new screen session with the name "slime"
 alias s="screen -S slime"
@@ -136,3 +138,10 @@ stty stop undef
 
 # rvm installer added line:
 if [[ -s /Users/Larry/.rvm/scripts/rvm ]] ; then source /Users/Larry/.rvm/scripts/rvm ; fi
+
+# REE tuning
+export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_HEAP_FREE_MIN=500000
