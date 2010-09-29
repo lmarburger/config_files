@@ -143,6 +143,10 @@
     " no highlight
     nmap <leader>nn :noh<CR>
 
+    " Check spelling
+    nmap <leader>S :set spell<CR>]s
+    nmap <leader>ns :set nospell<CR>
+
     " Search with ack
     map <leader>F :Ack<space>
 
