@@ -148,7 +148,7 @@
     nmap <leader>ns :set nospell<CR>
 
     " Search with ack
-    map <leader>F :Ack<space>
+    map <leader>A :Ack<space>
 
     " Yank from the cursor to the end of the line.
     nnoremap Y y$
