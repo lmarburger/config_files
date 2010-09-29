@@ -54,8 +54,8 @@ alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
 
 # GitX aliases
-alias gx=gitx
-alias gxc='gitx -c'
+alias gx='gitx --all'
+alias gxc='gitx --commit'
 
 # Open the current direcotry in MacVim
 alias m='mvim .'
