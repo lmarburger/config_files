@@ -209,6 +209,8 @@
       \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
       \ :nmap <leader>r :w<CR>:call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
+      \ nmap <leader>f ?\<it\\|context\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
+      \ nmap <leader>F ?\<it\\|context\><CR>$4gE3dE``:noh<CR>|
 
     autocmd Filetype eruby source ~/.vim/scripts/closetag.vim
   augroup END
