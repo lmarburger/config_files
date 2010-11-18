@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@heroku/gems/hydra-0.22.2'
-let g:netrw_dirhist_2='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@hydra/gems/rspec-core-2.0.0.beta.19'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@global/gems/sheepsafe-0.2.2'
+let g:netrw_dirhist_2='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@heroku-addons/gems/capybara-0.4.0'
+let g:netrw_dirhist_3='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@heroku-addons/gems/actionpack-3.0.1'
+let g:netrw_dirhist_4='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@cloudapp/gems/inherited_resources-1.0.6'
+let g:netrw_dirhist_5='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@cloudapp/gems/email_spec-0.6.3'
+let g:netrw_dirhist_6='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@cloudapp/gems/delayed_job-2.0.3'
+let g:netrw_dirhist_7='/Users/Larry/.rvm/gems/ree-1.8.7-2010.02@puny/gems/punycode4r-0.2.0'
