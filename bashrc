@@ -106,6 +106,9 @@ alias ql='qlmanage -p 2>/dev/null'
 # Run input through json gem
 alias pj=prettify_json.rb
 
+# Shotcut to pipe input to the clipboard
+alias pc=pbcopy
+
 # Load the git prompt script.
 source ~/.git-prompt
 
