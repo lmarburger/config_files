@@ -142,8 +142,8 @@ dusort() {
 # Allow ctrl-s to reverse through bash history (ctrl-r)
 stty stop undef
 
-# rvm installer added line:
-if [[ -s /Users/Larry/.rvm/scripts/rvm ]] ; then source /Users/Larry/.rvm/scripts/rvm ; fi
+# This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # REE tuning
 export RUBY_HEAP_MIN_SLOTS=1000000
