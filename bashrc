@@ -103,6 +103,9 @@ alias are="sudo apachectl restart"
 # QuickLook an image
 alias ql='qlmanage -p 2>/dev/null'
 
+# Run input through json gem
+alias pj=prettify_json.rb
+
 # Load the git prompt script.
 source ~/.git-prompt
 
