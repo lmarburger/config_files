@@ -32,7 +32,9 @@
     filetype plugin indent on
 
     " Size the window
-    set lines=52 columns=171
+    set lines=70 columns=191
+    set cc=+1,+2
+    hi ColorColumn guibg=#151515
 
     " Set the command window to be 2 lines tall.
     set cmdheight=2
@@ -72,7 +74,7 @@
     set scrolloff=3
 
     " line numbers
-    set number
+    set relativenumber
     setlocal numberwidth=5
 
     " Enable tab completion for commands
@@ -146,7 +148,7 @@
     nmap <leader>ns :set nospell<CR>
 
     " Search with ack
-    map <leader>A :Ack<space>
+    map <leader>a :Ack<space>
 
     " Yank from the cursor to the end of the line.
     nnoremap Y y$
@@ -207,8 +209,9 @@
       \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%") . "\n")<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
       \ :nmap <leader>r :w<CR>:call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
-      \ nmap <leader>f ?\<it\\|context\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
-      \ nmap <leader>F ?\<it\\|context\><CR>$4gE3dE``:noh<CR>|
+      \ nmap <leader>f ?\<it\\|context\\|scenario\\|feature\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
+      \ nmap <leader>F ?\<it\\|context\\|scenario\\|feature\><CR>$4gE3dE``:noh<CR>|
+
 
     autocmd Filetype eruby source ~/.vim/scripts/closetag.vim
   augroup END
@@ -217,8 +220,8 @@
     autocmd!
     autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
       \ set filetype=cucumber|
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
-      \ :nmap <leader>R :w<CR>:call Send_to_Screen("cucumber -r features " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
+      \ :nmap <leader>R :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\n")<CR>|
   augroup END
 
   " Execute the last command executed in screen.
