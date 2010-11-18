@@ -78,7 +78,6 @@ alias gen="script/generate"
 alias aut='autotest'
 alias cuc='rake cucumber'
 alias tc='rake test && rake cucumber'
-alias hy='RAILS_ENV=test rake hydra && rake cucumber'
 
 # Check which Ruby version I'm using
 alias rv='ruby --version'
