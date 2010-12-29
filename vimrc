@@ -19,7 +19,6 @@
     set hidden
 
     " Theme
-    "colorscheme ir_black
     colorscheme vividchalk
 
     " Font
@@ -30,11 +29,6 @@
 
     " filetype-specific indenting and plugins
     filetype plugin indent on
-
-    " Size the window
-    set lines=70 columns=191
-    set cc=+1,+2
-    hi ColorColumn guibg=#151515
 
     " Set the command window to be 2 lines tall.
     set cmdheight=2
@@ -73,10 +67,6 @@
     " scroll off-screen 3 lines at a time
     set scrolloff=3
 
-    " line numbers
-    set relativenumber
-    setlocal numberwidth=5
-
     " Enable tab completion for commands
     " first tab shows matches and next tab cycles through matches
     set wildmenu
@@ -106,93 +96,107 @@
     set guioptions-=T
 
 
+" Section: MacVim specific settings
+
+    " Size the window
+    set lines=70 columns=191
+    set cc=+1,+2
+    hi ColorColumn guibg=#151515
+
+    " line numbers
+    set relativenumber
+    setlocal numberwidth=5
+
+
 " Section: matchit
   :source ~/.vim/plugin/matchit.vim
 
+
 " Section: bufexplorer
-  
+
   " Hide default help
   let g:bufExplorerDefaultHelp=0
 
+
 " Section: NERDTree
-  
+
   " Hide default help
   let NERDTreeQuitOnOpen=1
 
 
 " Section: bindings
 
-    " Set the leader to , instead of \
-    let mapleader = ","
+  " Set the leader to , instead of \
+  let mapleader = ","
 
-    " Close the active buffer, but keep the split open.
-    map <leader>x :Bclose<CR>
-    map <leader>X :bd<CR>
+  " Close the active buffer, but keep the split open.
+  map <leader>x :Bclose<CR>
+  map <leader>X :bd<CR>
 
-    " insert hashrocket
-    imap <C-l> <Space>=><Space>
+  " insert hashrocket
+  imap <C-l> <Space>=><Space>
 
-    " toggle comments
-    nmap <D-/> ,c<space>
-    vmap <D-/> ,c<space>
-    imap <D-/> <C-O>,c<space>
+  " toggle comments
+  nmap <D-/> ,c<space>
+  vmap <D-/> ,c<space>
+  imap <D-/> <C-O>,c<space>
 
-    " toggle file browser
-    map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+  " toggle file browser
+  map <silent> <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
-    " no highlight
-    nmap <leader>nn :noh<CR>
+  " no highlight
+  nmap <leader>nn :noh<CR>
 
-    " Check spelling
-    nmap <leader>S :set spell<CR>]s
-    nmap <leader>ns :set nospell<CR>
+  " Check spelling
+  nmap <leader>S :set spell<CR>]s
+  nmap <leader>ns :set nospell<CR>
 
-    " Search with ack
-    map <leader>a :Ack<space>
+  " Search with ack
+  map <leader>a :Ack<space>
 
-    " Yank from the cursor to the end of the line.
-    nnoremap Y y$
+  " Yank from the cursor to the end of the line.
+  nnoremap Y y$
 
-    " Mash pinkies to escape.
-    imap jj <Esc>
+  " Mash pinkies to escape.
+  imap jj <Esc>
 
-    " Window splitting mappings
-    nmap <leader>v :vsplit<CR><C-w><C-w>
-    nmap <leader>s :split<CR> <C-w><C-w>
+  " Window splitting mappings
+  nmap <leader>v :vsplit<CR><C-w><C-w>
+  nmap <leader>s :split<CR> <C-w><C-w>
 
-    " Switch to previous buffer
-    nmap <leader>w <C-w>p
+  " Switch to previous buffer
+  nmap <leader>w <C-w>p
 
-    " Fix navigation to work when { is not in the first column
-    map [[ ?{<CR>w99[{
-    map ][ /}<CR>b99]}
-    map ]] j0[[%/{<CR>
-    map [] k$][%?}<CR>
+  " Fix navigation to work when { is not in the first column
+  map [[ ?{<CR>w99[{
+  map ][ /}<CR>b99]}
+  map ]] j0[[%/{<CR>
+  map [] k$][%?}<CR>
 
-    " Switching buffers
-    nmap <tab> :tabnext<cr>
-    nmap <s-tab> :tabprevious<cr>
+  " Switching buffers
+  nmap <tab> :tabnext<cr>
+  nmap <s-tab> :tabprevious<cr>
 
-    " Quickly edit vimrc
-    map \v :sp ~/.vimrc<CR><C-W>_
+  " Quickly edit vimrc
+  map \v :sp ~/.vimrc<CR><C-W>_
 
-    " Line up stuff in visual mode
-    vmap <leader>: :Tabularize first_colon<CR>
-    "vmap <leader>L :Tabularize colon<CR>
-    vmap <leader>l :Tabularize hash_rocket<CR>
-    vmap <leader>= :Tabularize equals<CR>
-    vmap <leader>' :Tabularize first_single_quote<CR>
-    vmap <leader>" :Tabularize first_double_quote<CR>
-    vmap <leader>{ :Tabularize first_left_stash<CR>
-    vmap <leader>} :Tabularize first_right_stash<CR>
-    vmap <leader>\| :Tabularize bar<CR>
+  " Line up stuff in visual mode
+  vmap <leader>: :Tabularize first_colon<CR>
+  "vmap <leader>L :Tabularize colon<CR>
+  vmap <leader>l :Tabularize hash_rocket<CR>
+  vmap <leader>= :Tabularize equals<CR>
+  vmap <leader>' :Tabularize first_single_quote<CR>
+  vmap <leader>" :Tabularize first_double_quote<CR>
+  vmap <leader>{ :Tabularize first_left_stash<CR>
+  vmap <leader>} :Tabularize first_right_stash<CR>
+  vmap <leader>\| :Tabularize bar<CR>
 
-    " Git
-    nmap <leader>gs :Gstatus<CR>
-    nmap <leader>gc :Gcommit<CR>
-    nmap <leader>gd :Gdiff<CR>
+  " Git
+  nmap <leader>gs :Gstatus<CR>
+  nmap <leader>gc :Gcommit<CR>
+  nmap <leader>gd :Gdiff<CR>
 
-    nmap <leader>t :tabe<CR>:Bclose<CR>
+  nmap <leader>t :tabe<CR>:Bclose<CR>
 
 " Section: closetag.vim
 
@@ -204,11 +208,11 @@
   augroup Ruby
     autocmd!
     autocmd BufRead,BufNewFile,BufEnter *.rb
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby " . expand("%"))<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%"))<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("rspec " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("rspec " . expand("%"))<CR>|
       \ nmap <leader>f ?\<it\\|context\\|scenario\\|feature\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
       \ nmap <leader>F ?\<it\\|context\\|scenario\\|feature\><CR>$4gE3dE``:noh<CR>|
 
@@ -220,13 +224,13 @@
     autocmd!
     autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
       \ set filetype=cucumber|
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>\n")<CR>|
-      \ :nmap <leader>R :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\n")<CR>|
+      \ :nmap <leader>r :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>")<CR>|
+      \ :nmap <leader>R :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%"))<CR>|
   augroup END
 
   " Execute the last command executed in screen.
-  :nmap <leader>l :w<CR>:call Send_to_Screen("exec_last_feature_or_test\n")<CR>
-  :nmap <leader>L :w<CR>:call Send_to_Screen("!!\n")<CR>
+  :nmap <leader>l :w<CR>:call Send_to_Screen("exec_last_feature_or_test")<CR>
+  :nmap <leader>L :w<CR>:call Send_to_Screen("!!")<CR>
 
   augroup Vim
     autocmd!

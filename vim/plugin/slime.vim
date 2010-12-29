@@ -7,7 +7,7 @@ function Send_to_Screen(text)
     let g:screen_windowname = "w0"
   end
 
-  echo system("screen -S " . g:screen_sessionname . " -p " . g:screen_windowname . " -X stuff '" . substitute(a:text, "'", "'\\\\''", 'g') . "'")
+  echo system("screen -S " . g:screen_sessionname . " -p " . g:screen_windowname . " -X stuff '" . substitute(a:text, "'", "'\\\\''", 'g') . "\n'")
 endfunction
 
 function Screen_Session_Names(A,L,P)
@@ -30,4 +30,4 @@ vmap <C-c><C-c> "ry :call Send_to_Screen(@r)<CR>
 nmap <C-c><C-c> vip<C-c><C-c>
 
 nmap <C-c>v :call Screen_Vars()<CR>
-
+nmap <C-c><C-t> :call Send_to_Screen("
