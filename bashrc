@@ -29,7 +29,6 @@ export COLOR_GRAY='\033[1;30m'
 export COLOR_LIGHT_GRAY='\033[0;37m'
 alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
 
-
 # ls with colors
 alias ls='ls -G'
 

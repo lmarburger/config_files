@@ -104,8 +104,8 @@
     hi ColorColumn guibg=#151515
 
     " line numbers
-    set relativenumber
-    setlocal numberwidth=5
+    "set relativenumber
+    "setlocal numberwidth=5
 
 
 " Section: matchit
@@ -197,6 +197,12 @@
   nmap <leader>gd :Gdiff<CR>
 
   nmap <leader>t :tabe<CR>:Bclose<CR>
+
+  " Random mappings to convert from HAML
+  nmap <leader>hh s<<ESC>V:s/\./ /g<CR>Wiclass="<ESC>A"><ESC>/^\s*\zs%<CR>
+  nmap <leader>hd s<div class="<ESC>A"><ESC>
+  nmap <leader>hb s<<ESC>f s><ESC>
+
 
 " Section: closetag.vim
 
