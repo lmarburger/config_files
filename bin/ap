@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+gemset = ARGV.first
+puts 'I need a gemset!' unless gemset
+
+gemset = gemset.include?('@') ? gemset : "ree@#{ gemset }"
+
+puts "Using #{ gemset } gemset for passenger wrapper"
+system "rvm wrapper #{ gemset } passenger"
