@@ -214,11 +214,11 @@
   augroup Ruby
     autocmd!
     autocmd BufRead,BufNewFile,BufEnter *.rb
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby " . expand("%"))<CR>|
+      \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("ruby " . expand("%"))<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%"))<CR>|
+      \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%"))<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("rspec " . expand("%"))<CR>|
+      \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("rspec " . expand("%"))<CR>|
       \ nmap <leader>f ?\<it\\|context\\|scenario\\|feature\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
       \ nmap <leader>F ?\<it\\|context\\|scenario\\|feature\><CR>$4gE3dE``:noh<CR>|
 
@@ -230,7 +230,7 @@
     autocmd!
     autocmd BufNewFile,BufReadPost,BufEnter *.feature,*.story
       \ set filetype=cucumber|
-      \ :nmap <leader>r :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>")<CR>|
+      \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>")<CR>|
       \ :nmap <leader>R :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%"))<CR>|
   augroup END
 
