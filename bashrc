@@ -47,11 +47,6 @@ alias pull='git pull --rebase'
 alias pulls='git stash && git pull --rebase && git stash pop'
 alias push='git push'
 
-# git-svn aliases
-alias gs='git svn'
-alias gsr='git svn rebase'
-alias gsd='git svn dcommit'
-
 # GitX aliases
 alias gx='gitx --all'
 alias gxc='gitx --commit'
