@@ -5,107 +5,110 @@
 
 " Section: configuration
 
-    " Pick up local vimrc files
-    set exrc
+  " Pick up local vimrc files
+  set exrc
 
-    " Syntax highlighting
-    set nocompatible
-    syntax on
+  " Syntax highlighting
+  set nocompatible
+  syntax on
 
-    " Wrap lines on word break
-    set linebreak
+  " Wrap lines on word break
+  set linebreak
 
-    " Let me hide modified buffers
-    set hidden
+  " Let me hide modified buffers
+  set hidden
 
-    " Theme
-    colorscheme vividchalk
+  " Theme
+  colorscheme vividchalk
 
-    " Font
-    set gfn=Monaco:h10
+  " Font
+  set gfn=Monaco:h10
 
-    scriptencoding utf-8
-    set encoding=utf-8 " Not sure if there's a difference
+  scriptencoding utf-8
+  set encoding=utf-8 " Not sure if there's a difference
 
-    " filetype-specific indenting and plugins
-    filetype plugin indent on
+  " filetype-specific indenting and plugins
+  filetype plugin indent on
 
-    " Set the command window to be 2 lines tall.
-    set cmdheight=2
+  " Set the command window to be 2 lines tall.
+  set cmdheight=2
 
-    " Set wrap width
-    set textwidth=80
+  " Set wrap width
+  set textwidth=80
 
-    " show the best match so far as search strings are typed
-    set incsearch
+  " show the best match so far as search strings are typed
+  set incsearch
 
-    " highlight search results
-    set hlsearch
+  " highlight search results
+  set hlsearch
 
-    " Ignore case when searching.
-    set ignorecase
-    set smartcase
+  " Ignore case when searching.
+  set ignorecase
+  set smartcase
 
-    set visualbell
+  set visualbell
 
-    " highlight the current cursor line
-    set cursorline
+  " flashes matching brackets and parenthesis
+  set showmatch
 
-    " flashes matching brackets and parenthesis
-    set showmatch
+  " Tabs should be 2 spaces wide.
+  set shiftwidth=2
+  set tabstop=2
 
-    " Tabs should be 2 spaces wide.
-    set shiftwidth=2
-    set tabstop=2
+  " Convert a <Tab> to <space>s
+  set expandtab
 
-    " Convert a <Tab> to <space>s
-    set expandtab
+  " Helps with backspacing expanded tabs
+  set smarttab
 
-    " Helps with backspacing expanded tabs
-    set smarttab
+  " scroll off-screen 3 lines at a time
+  set scrolloff=3
 
-    " scroll off-screen 3 lines at a time
-    set scrolloff=3
+  " Enable tab completion for commands
+  " first tab shows matches and next tab cycles through matches
+  set wildmenu
+  set wildmode=list:longest,full
 
-    " Enable tab completion for commands
-    " first tab shows matches and next tab cycles through matches
-    set wildmenu
-    set wildmode=list:longest,full
+  " Nice statusbar
+  set laststatus=2
+  set statusline=\ "
+  set statusline+=%f\ " filename
+  set statusline+=[
+  set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
+  set statusline+=%{&fileformat}] " file format
+  set statusline+=%h%m%r%w " flag
+  set statusline+=%= " right align
+  set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
-    " Nice statusbar
-    set laststatus=2
-    set statusline=\ "
-    set statusline+=%f\ " filename
-    set statusline+=[
-    set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
-    set statusline+=%{&fileformat}] " file format
-    set statusline+=%h%m%r%w " flag
-    set statusline+=%= " right align
-    set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
+  " enable setting title
+  set title
 
-    " enable setting title
-    set title
+  " configure title to look like: /path/to/file
+  set titlestring=%-25.55F\ %a%r%m titlelen=70
 
-    " configure title to look like: /path/to/file
-    set titlestring=%-25.55F\ %a%r%m titlelen=70
+  " Make backspace work in insert mode
+  set backspace=indent,eol,start
 
-    " Make backspace work in insert mode
-    set backspace=indent,eol,start
+  " Hide MacVim's toolbar by default
+  set guioptions-=T
 
-    " Hide MacVim's toolbar by default
-    set guioptions-=T
+  " Don't use double spaces when joining.
+  set nojoinspaces
 
 
 " Section: MacVim specific settings
+
+  if has("gui_macvim")
+
+    " highlight the current cursor line
+    set cursorline
 
     " Size the window
     set lines=70 columns=191
     set cc=+1,+2
     hi ColorColumn guibg=#151515
 
-    " line numbers
-    "set relativenumber
-    "setlocal numberwidth=5
+  endif
 
 
 " Section: matchit
@@ -129,9 +132,16 @@
   " Set the leader to , instead of \
   let mapleader = ","
 
+  " Toggle between two and three columns.
+  map <leader>2 :set columns=191<cr>
+  map <leader>3 :set columns=287<cr>
+
   " Close the active buffer, but keep the split open.
   map <leader>x :Bclose<CR>
   map <leader>X :bd<CR>
+
+  " Shortcut for open Gundo
+  nnoremap <leader>u :GundoToggle<CR>
 
   " insert hashrocket
   imap <C-l> <Space>=><Space>
@@ -158,7 +168,7 @@
   nnoremap Y y$
 
   " Mash pinkies to escape.
-  imap jj <Esc>
+  "imap jj <Esc>
 
   " Window splitting mappings
   nmap <leader>v :vsplit<CR><C-w><C-w>
@@ -184,7 +194,7 @@
   vmap <leader>: :Tabularize first_colon<CR>
   "vmap <leader>L :Tabularize colon<CR>
   vmap <leader>l :Tabularize hash_rocket<CR>
-  vmap <leader>= :Tabularize equals<CR>
+  vmap <leader>= :Tabularize first_equals<CR>
   vmap <leader>' :Tabularize first_single_quote<CR>
   vmap <leader>" :Tabularize first_double_quote<CR>
   vmap <leader>{ :Tabularize first_left_stash<CR>
@@ -218,12 +228,22 @@
     autocmd BufRead,BufNewFile,BufEnter *_test.rb,test_*.rb
       \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("ruby -Itest -Ilib -rubygems " . expand("%"))<CR>|
     autocmd BufRead,BufNewFile,BufEnter *_spec.rb
-      \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("rspec " . expand("%"))<CR>|
-      \ nmap <leader>f ?\<it\\|context\\|scenario\\|feature\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
-      \ nmap <leader>F ?\<it\\|context\\|scenario\\|feature\><CR>$4gE3dE``:noh<CR>|
+      \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("ruby -Ispec -Ilib -rubygems " . expand("%"))<CR>|
+    "autocmd BufRead,BufNewFile,BufEnter *_spec.rb
+      "\ :nmap <leader><leader> :w<CR>:call Send_to_Screen("rspec " . expand("%"))<CR>|
+      "\ nmap <leader>f ?\<it\\|context\\|scenario\\|feature\><CR>$gEa, :focused => true<ESC>``:noh<CR>|
+      "\ nmap <leader>F ?\<it\\|context\\|scenario\\|feature\><CR>$4gE3dE``:noh<CR>
 
 
     autocmd Filetype eruby source ~/.vim/scripts/closetag.vim
+  augroup END
+
+  augroup CoffeeScript
+    autocmd!
+    autocmd BufNewFile,BufReadPost,BufEnter *.coffee
+      \ imap <C-l> <Space>->
+    autocmd BufLeave *.coffee
+      \ imap <C-l> <Space>=><Space>
   augroup END
 
   augroup Cucumber
@@ -232,6 +252,12 @@
       \ set filetype=cucumber|
       \ :nmap <leader><leader> :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%") . "\:<C-R>=line(".")<CR>")<CR>|
       \ :nmap <leader>R :w<CR>:call Send_to_Screen("bundle exec cucumber -r features " . expand("%"))<CR>|
+  augroup END
+
+  augroup JST
+    autocmd!
+    autocmd BufNewFile,BufReadPost,BufEnter *.jst
+      \ set filetype=html
   augroup END
 
   " Execute the last command executed in screen.

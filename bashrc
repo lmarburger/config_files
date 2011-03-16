@@ -1,4 +1,5 @@
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:~/.bin
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/share/npm/bin:~/.bin
+export NODE_PATH=/usr/local/lib/node
 
 export DISPLAY=:0.0
 export EDITOR=mvim
@@ -46,6 +47,7 @@ alias gba='git branch -a'
 alias pull='git pull --rebase'
 alias pulls='git stash && git pull --rebase && git stash pop'
 alias push='git push'
+alias stage='git push && git push staging master'
 
 # GitX aliases
 alias gx='gitx --all'
@@ -102,6 +104,9 @@ alias pj=prettify_json.rb
 
 # Shotcut to pipe input to the clipboard
 alias pc=pbcopy
+
+# Print CloudApp Pro stats to Campfire
+alias clstats="cloud_nine_ruby ~/Documents/Projects/ruby/cloud_nine/cloud_nine.rb"
 
 # Load the git prompt script.
 source ~/.git-prompt

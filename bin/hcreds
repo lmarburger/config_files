@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+name = ARGV.first
+system "cp ~/.heroku/credentials.#{ name } ~/.heroku/credentials"

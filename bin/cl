@@ -7,14 +7,18 @@ require 'yajl'
 
 # Convert a CloudApp URL in the clipboard to its content URL.
 
-uri  = URI.parse `pbpaste`.chomp
-http = Net::HTTP.new uri.host, uri.port
+begin
+  uri  = URI.parse `pbpaste`.chomp
+  http = Net::HTTP.new uri.host, uri.port
 
-request = Net::HTTP::Get.new uri.request_uri
-request["Accept"] = "application/json"
+  request = Net::HTTP::Get.new uri.request_uri
+  request["Accept"] = "application/json"
 
-response = http.request request
-json     = Yajl::Parser.parse response.body, :symbolize_keys => true
+  response = http.request request
+  json     = Yajl::Parser.parse response.body, :symbolize_keys => true
 
-`echo '#{ json[:content_url] }' | tr -d "\n" | pbcopy`
-puts 'Copied!'
+  `echo '#{ json[:content_url] }' | tr -d "\n" | pbcopy`
+  puts 'Copied!'
+rescue Exception => e
+  puts 'Fail! Oh noes!'
+end
